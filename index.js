@@ -1,7 +1,8 @@
 "use strict";
 
 function getDogImage() {
-  fetch("https://dog.ceo/api/breeds/image/random")
+  let quantity = $('input[name="Doggos"]').val();
+  fetch(`https://dog.ceo/api/breeds/image/random/${quantity}`)
     .then(response => response.json())
     .then(responseJson => displayResults(responseJson))
     .catch(error => alert("Something went wrong. Try again later."));
@@ -20,6 +21,7 @@ function displayResults(responseJson) {
 function watchForm() {
   $("form").submit(event => {
     event.preventDefault();
+
     getDogImage();
   });
 }
