@@ -10,10 +10,12 @@ function getDogImage() {
 
 function displayResults(responseJson) {
   console.log(responseJson);
-  //replace the existing image with the new one
-  $(".results-img").replaceWith(
-    `<img src="${responseJson.message}" class="results-img">`
-  );
+  //loops through all images returned
+  for (let i = 0; i < responseJson.message.length; i++) {
+    $(".results").append(
+      `<img src="${responseJson.message[i]}" class="results-img" width="200" height="auto">`
+    );
+  }
   //display the results section
   $(".results").removeClass("hidden");
 }

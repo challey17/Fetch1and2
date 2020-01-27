@@ -10,3 +10,8 @@ section {
 .hidden {
   display: none;
 }
+
+img {
+  display: block;
+  padding-top: 10px;
+}
